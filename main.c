@@ -33,6 +33,20 @@ int main() {
         fprintf(stdout, " is %i years old", getAge(&Users[i]));
         fprintf(stdout, " and lives in %s.\n", getLocation(&Users[i]));
     }
+
+    char response;
+    fprintf(stdout, "Do you want to save the users? [Y/N]: ");
+    fscanf(stdin, "%c", &response);
+    getchar();
+    if (response == 'y' || response == 'Y') {
+        fprintf(stdout, "Enter file name to save user data to: ");
+        char *filePath = malloc(256*sizeof(char));
+        fscanf(stdin, "%s", filePath);
+        getchar();
+        save(filePath, Users, numberOfUsers);
+        free(filePath);
+    }
+
     
     for (i = 0; i < numberOfUsers; i++) {
         deleteUser(&Users[i]);
