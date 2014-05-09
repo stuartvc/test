@@ -3,17 +3,6 @@
 #include "user.h"
 
 int main() {
-    User stuart;
-    newUser(&stuart);
-
-    setName("stuart", &stuart);
-    fprintf(stdout, "name is %s\n", getName(&stuart));
-
-    setAge(19, &stuart);
-    fprintf(stdout, "age is %i\n", getAge(&stuart));
-
-    setLocation("Toronto", &stuart);
-    fprintf(stdout, "location is %s\n", getLocation(&stuart));
 
     int numberOfUsers = 0;
     fprintf(stdout, "Enter number of users: ");
@@ -45,6 +34,10 @@ int main() {
         fprintf(stdout, " and lives in %s.\n", getLocation(&Users[i]));
     }
     
+    for (i = 0; i < numberOfUsers; i++) {
+        deleteUser(&Users[i]);
+    }
+    free(Users);
 
-    
+    return 0;
 }
