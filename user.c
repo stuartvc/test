@@ -13,7 +13,10 @@ void deleteUser(User *user){
 }
 
 void setName(char *newName,User *user){
+    int i = 0;
     strncpy(user->name, newName, 256);
+    while (user->name[i] != '\n' && i++<256);
+    if (i<256) user->name[i] = '\0';
 }
 
 char *getName(User *user) {
@@ -30,7 +33,10 @@ int getAge(User *user) {
 }
 
 void setLocation(char *newLocation,User *user) {
+    int i = 0;
     strncpy(user->location, newLocation, 256);
+    while (user->location[i] != '\n' && i++<256);
+    if (i<256) user->location[i] = '\0';
 }
 
 char *getLocation(User *user) {
